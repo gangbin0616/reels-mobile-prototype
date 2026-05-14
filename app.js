@@ -1,62 +1,123 @@
 const reels = [
   {
-    author: "@mira.studio",
-    avatar: "M",
-    caption: "새벽 작업실 무드. 유리, 금속, 낮은 베이스라인.",
-    sound: "original audio - mira",
+    type: "short",
+    author: "@brain.signal",
+    avatar: "B",
+    caption: "숏폼 1개: 도파민 보상은 빠르고, 기억 고정은 느립니다.",
+    sound: "fast scroll lab - 01",
     likes: 28400,
     comments: 418,
-    image:
-      "linear-gradient(135deg, #0f172a 0%, #164e63 34%, #14b8a6 68%, #f8fafc 100%)",
+    metric: 38,
+    tag: "빠른 정보",
+    image: "linear-gradient(135deg, #0f172a 0%, #155e75 38%, #14b8a6 72%, #f8fafc 100%)",
     thread: [
-      ["J", "조명 톤이 진짜 좋다"],
-      ["S", "저장해두고 레퍼런스로 볼게요"],
-      ["N", "이런 질감으로 더 올려주세요"],
+      ["J", "짧게 보면 다 배운 것 같은 느낌이 문제네요."],
+      ["S", "기억에 남는지는 따로 봐야 할 듯."],
+      ["N", "인지 부채라는 말이 딱 맞다."],
     ],
   },
   {
-    author: "@noon.archive",
-    avatar: "N",
-    caption: "도시 산책 12초. 손떨림까지 그대로 살린 컷.",
-    sound: "street loop - noon",
+    type: "short",
+    author: "@focus.debt",
+    avatar: "F",
+    caption: "60초 지식은 입력 속도가 빠르지만 연결 시간이 부족합니다.",
+    sound: "attention debt - loop",
     likes: 91300,
     comments: 1204,
-    image:
-      "linear-gradient(160deg, #18181b 0%, #3f3f46 24%, #a1a1aa 50%, #fbbf24 72%, #7f1d1d 100%)",
+    metric: 61,
+    tag: "누적 자극",
+    image: "linear-gradient(160deg, #18181b 0%, #3f3f46 25%, #a1a1aa 52%, #fbbf24 73%, #7f1d1d 100%)",
     thread: [
-      ["A", "컷 넘어가는 타이밍 미쳤다"],
-      ["R", "색감이 필름 같음"],
-      ["Y", "다음에는 밤 버전도 보고 싶어요"],
+      ["A", "많이 봤는데 설명은 못 하는 그 상태."],
+      ["R", "이걸 중간에 끊어주는 장치가 필요함."],
+      ["Y", "정리형 콘텐츠로 바꾸는 아이디어 좋다."],
     ],
   },
   {
-    author: "@flow.table",
-    avatar: "F",
-    caption: "책상 위에서 만드는 미니 루틴. 커피, 노트, 25분 집중.",
-    sound: "focus room - flow",
-    likes: 16800,
-    comments: 205,
-    image:
-      "linear-gradient(145deg, #064e3b 0%, #10b981 28%, #e2e8f0 54%, #334155 78%, #020617 100%)",
-    thread: [
-      ["K", "타이머 UI도 같이 있으면 좋겠다"],
-      ["B", "아침 루틴으로 따라 해봅니다"],
-      ["H", "소리 조합 좋네요"],
-    ],
-  },
-  {
-    author: "@signal.room",
-    avatar: "S",
-    caption: "한 장면에 시선이 머무는 법. 여백을 크게 잡기.",
-    sound: "soft pulse - signal",
+    type: "short",
+    author: "@popcorn.brain",
+    avatar: "P",
+    caption: "자극 전환이 빨라질수록 느린 글과 긴 과제는 더 무겁게 느껴집니다.",
+    sound: "stimulus spike - loop",
     likes: 57200,
     comments: 733,
-    image:
-      "linear-gradient(130deg, #020617 0%, #1e293b 30%, #be123c 58%, #fda4af 82%, #f8fafc 100%)",
+    metric: 78,
+    tag: "제동 필요",
+    image: "linear-gradient(130deg, #020617 0%, #1e293b 30%, #be123c 58%, #fda4af 82%, #f8fafc 100%)",
     thread: [
-      ["D", "여백 설명 없이도 바로 느껴짐"],
-      ["P", "이 스타일로 템플릿 만들고 싶다"],
-      ["L", "사운드 어디서 구했나요?"],
+      ["D", "팝콘 브레인 설명용으로 좋다."],
+      ["P", "여기서 자동 전환이 나오면 이해될 듯."],
+      ["L", "UI가 문제의식을 바로 보여줌."],
+    ],
+  },
+  {
+    type: "brake",
+    author: "@cognitive.brake",
+    avatar: "C",
+    caption: "인지 제동장치 작동: 피드 속도를 늦추고 핵심 개념을 재정렬합니다.",
+    sound: "low stimulus recovery",
+    likes: 12800,
+    comments: 96,
+    metric: 84,
+    tag: "자동 전환",
+    image: "linear-gradient(145deg, #042f2e 0%, #0f766e 32%, #d1fae5 60%, #334155 100%)",
+    intervention: {
+      title: "제동 구간 진입",
+      kicker: "Cognitive Brake",
+      body: "연속 스크롤 3회 후 자극 피로가 높아졌다고 가정합니다. 다음 콘텐츠는 빠른 재미가 아니라 기억 고정을 돕는 정리형 카드로 전환됩니다.",
+      action: "핵심만 10초 정리",
+    },
+    thread: [
+      ["K", "여기서 쉬어가는 게 앱의 차별점이네요."],
+      ["B", "실제 측정 대신 추정 모델로 설명하면 안전할 듯."],
+      ["H", "멘트가 발표용으로 바로 쓰기 좋다."],
+    ],
+  },
+  {
+    type: "knowledge",
+    author: "@deep.insert",
+    avatar: "D",
+    caption: "고밀도 지식 삽입: 단기 기억이 사라지기 전에 구조를 먼저 제공합니다.",
+    sound: "knowledge insert - memory",
+    likes: 42100,
+    comments: 512,
+    metric: 46,
+    tag: "심화 정보",
+    image: "linear-gradient(145deg, #111827 0%, #312e81 26%, #7c3aed 48%, #22d3ee 78%, #ecfeff 100%)",
+    knowledge: {
+      title: "왜 숏폼 지식은 쉽게 사라질까?",
+      points: [
+        "작업기억은 한 번에 처리할 수 있는 정보량이 제한적입니다.",
+        "장기 기억은 반복, 연결, 회상 과정을 거칠 때 안정됩니다.",
+        "따라서 피드 중간에 요약, 질문, 비교를 넣어야 지식이 고정됩니다.",
+      ],
+      prompt: "방금 본 3개 영상의 공통 키워드: 속도, 자극, 연결 부족",
+    },
+    thread: [
+      ["M", "그냥 쉬는 게 아니라 공부 카드가 들어오는 구조."],
+      ["E", "언어/전공/심화 정보 넣기 좋겠다."],
+      ["Q", "발표 데모로 이해가 빠름."],
+    ],
+  },
+  {
+    type: "quiz",
+    author: "@memory.lock",
+    avatar: "M",
+    caption: "고착화 유도: 망각 시점에 짧은 회상 질문을 띄워 기억을 다시 불러냅니다.",
+    sound: "recall cue - lock",
+    likes: 33700,
+    comments: 281,
+    metric: 32,
+    tag: "장기 기억",
+    image: "linear-gradient(140deg, #020617 0%, #164e63 34%, #0f766e 62%, #f0fdfa 100%)",
+    recall: {
+      question: "방금 흐름의 핵심 문제는?",
+      answer: "정보는 빠르게 들어오지만 연결과 회상 시간이 부족해 휘발성 지식이 된다.",
+    },
+    thread: [
+      ["T", "회상 질문이 들어오니 설명이 남는다."],
+      ["G", "이게 숏폼을 학습 도구로 바꾸는 부분이네요."],
+      ["U", "마지막에 답 공개되는 연출 좋다."],
     ],
   },
 ];
@@ -67,6 +128,8 @@ const state = {
   saved: new Set(),
   muted: false,
   following: new Set(),
+  recallOpen: false,
+  swipes: 0,
 };
 
 const feed = document.querySelector("#feed");
@@ -86,6 +149,10 @@ const commentList = document.querySelector("#commentList");
 const commentForm = document.querySelector("#commentForm");
 const commentInput = document.querySelector("#commentInput");
 const heartBurst = document.querySelector("#heartBurst");
+const cognitivePanel = document.querySelector("#cognitivePanel");
+const cognitiveLabel = document.querySelector("#cognitiveLabel");
+const cognitiveMeter = document.querySelector("#cognitiveMeter");
+const cognitiveValue = document.querySelector("#cognitiveValue");
 
 function formatCount(value) {
   if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
@@ -94,15 +161,42 @@ function formatCount(value) {
 }
 
 function renderFeed() {
-  feed.innerHTML = reels
-    .map(
-      (reel, index) => `
-        <article class="reel ${index === state.index ? "is-active" : ""}" style="--image: ${reel.image}" aria-label="${reel.author} reel">
-          <div class="motion-mark"></div>
-        </article>
-      `,
-    )
-    .join("");
+  feed.innerHTML = reels.map((reel, index) => renderReel(reel, index)).join("");
+}
+
+function renderReel(reel, index) {
+  const overlay = reel.intervention
+    ? `<section class="insight-card brake-card">
+        <span>${reel.intervention.kicker}</span>
+        <h2>${reel.intervention.title}</h2>
+        <p>${reel.intervention.body}</p>
+        <button type="button">${reel.intervention.action}</button>
+      </section>`
+    : reel.knowledge
+      ? `<section class="insight-card knowledge-card">
+          <span>Deep Knowledge Insert</span>
+          <h2>${reel.knowledge.title}</h2>
+          <ul>${reel.knowledge.points.map((point) => `<li>${point}</li>`).join("")}</ul>
+          <p class="memory-prompt">${reel.knowledge.prompt}</p>
+        </section>`
+      : reel.recall
+        ? `<section class="insight-card recall-card">
+            <span>Recall Lock</span>
+            <h2>${reel.recall.question}</h2>
+            <p class="recall-answer ${state.recallOpen ? "is-open" : ""}">${state.recallOpen ? reel.recall.answer : "탭하면 답 공개"}</p>
+            <button type="button" data-recall>답 보기</button>
+          </section>`
+        : `<div class="micro-copy">
+            <span>${reel.tag}</span>
+            <strong>${reel.metric}%</strong>
+          </div>`;
+
+  return `
+    <article class="reel ${index === state.index ? "is-active" : ""} reel-${reel.type}" style="--image: ${reel.image}" aria-label="${reel.author} reel">
+      <div class="motion-mark"></div>
+      ${overlay}
+    </article>
+  `;
 }
 
 function renderComments() {
@@ -138,12 +232,27 @@ function updateUi() {
   followBtn.classList.toggle("is-following", state.following.has(reel.author));
   followBtn.textContent = state.following.has(reel.author) ? "Following" : "Follow";
   soundBtn.style.animationPlayState = state.muted ? "paused" : "running";
+  cognitiveLabel.textContent = reel.type === "short" ? "자극 누적 추정" : reel.type === "brake" ? "인지 제동 작동" : "기억 고정 구간";
+  cognitiveMeter.style.width = `${reel.metric}%`;
+  cognitiveValue.textContent = `${reel.metric}%`;
+  cognitivePanel.classList.toggle("is-alert", reel.metric >= 75);
+  cognitivePanel.classList.toggle("is-lock", reel.type === "knowledge" || reel.type === "quiz");
   renderComments();
 }
 
 function goTo(index) {
   state.index = (index + reels.length) % reels.length;
+  state.recallOpen = false;
   updateUi();
+}
+
+function advance(direction) {
+  state.swipes += 1;
+  if (direction > 0 && state.swipes === 3) {
+    goTo(3);
+    return;
+  }
+  goTo(state.index + direction);
 }
 
 function burstLike() {
@@ -177,7 +286,14 @@ feed.addEventListener("pointerup", (event) => {
   const now = Date.now();
 
   if (Math.abs(distance) > 54) {
-    goTo(state.index + (distance < 0 ? 1 : -1));
+    advance(distance < 0 ? 1 : -1);
+    return;
+  }
+
+  if (event.target.closest("[data-recall]") || event.target.closest(".recall-card")) {
+    state.recallOpen = true;
+    renderFeed();
+    updateUi();
     return;
   }
 
@@ -190,8 +306,8 @@ feed.addEventListener("pointerup", (event) => {
 });
 
 window.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowDown") goTo(state.index + 1);
-  if (event.key === "ArrowUp") goTo(state.index - 1);
+  if (event.key === "ArrowDown") advance(1);
+  if (event.key === "ArrowUp") advance(-1);
   if (event.key.toLowerCase() === "l") {
     state.liked.has(state.index) ? state.liked.delete(state.index) : state.liked.add(state.index);
     updateUi();

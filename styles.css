@@ -120,10 +120,109 @@ svg {
   inset: 31% 26%;
 }
 
+.micro-copy {
+  position: absolute;
+  left: 22px;
+  top: 38%;
+  display: grid;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.58);
+}
+
+.micro-copy span {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.micro-copy strong {
+  font-size: 58px;
+  line-height: 0.92;
+}
+
+.insight-card {
+  position: absolute;
+  left: 22px;
+  right: 82px;
+  top: 28%;
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  background: rgba(5, 10, 14, 0.68);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+  transform: translateY(14px);
+  opacity: 0;
+}
+
+.reel.is-active .insight-card {
+  animation: cardIn 520ms 120ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.insight-card span {
+  color: #7dd3fc;
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.insight-card h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.08;
+}
+
+.insight-card p,
+.insight-card li {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  line-height: 1.52;
+}
+
+.insight-card ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.insight-card button {
+  width: fit-content;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #2dd4bf;
+  color: #031716;
+  font-weight: 900;
+}
+
+.memory-prompt,
+.recall-answer {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.brake-card span {
+  color: #fda4af;
+}
+
+.knowledge-card span {
+  color: #c4b5fd;
+}
+
+.recall-card span {
+  color: #67e8f9;
+}
+
 .topbar,
 .bottom-nav,
 .rail,
-.caption-block {
+.caption-block,
+.cognitive-panel {
   position: absolute;
   z-index: 5;
 }
@@ -142,6 +241,77 @@ svg {
   font-weight: 900;
   letter-spacing: 0;
   backdrop-filter: blur(14px);
+}
+
+.cognitive-panel {
+  top: 102px;
+  left: 14px;
+  right: 82px;
+  display: grid;
+  gap: 7px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(6, 14, 18, 0.48);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.26);
+}
+
+.cognitive-panel div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cognitive-panel span,
+.cognitive-panel p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.cognitive-panel strong {
+  color: #bffdf4;
+  font-size: 14px;
+}
+
+.cognitive-panel p {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.meter-track {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.meter-track i {
+  display: block;
+  width: 38%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2dd4bf, #facc15);
+  transition: width 340ms ease, background 180ms ease;
+}
+
+.cognitive-panel.is-alert {
+  border-color: rgba(251, 113, 133, 0.62);
+}
+
+.cognitive-panel.is-alert .meter-track i {
+  background: linear-gradient(90deg, #facc15, #fb7185);
+}
+
+.cognitive-panel.is-lock {
+  border-color: rgba(125, 211, 252, 0.56);
+}
+
+.cognitive-panel.is-lock .meter-track i {
+  background: linear-gradient(90deg, #38bdf8, #2dd4bf);
 }
 
 .topbar {
@@ -545,6 +715,13 @@ svg {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

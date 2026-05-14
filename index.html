@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loopdeck Short Feed - Test Prototype</title>
+    <title>Cognitive Brake Feed - Test Prototype</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="phone-shell" aria-label="Loopdeck mobile short-form feed">
+    <main class="phone-shell" aria-label="Cognitive brake mobile short-form feed">
       <section class="feed" id="feed" aria-live="polite"></section>
 
       <header class="topbar" aria-label="Feed sections">
@@ -24,6 +24,17 @@
       </header>
 
       <div class="test-badge" aria-label="Test prototype">TEST PROTOTYPE</div>
+
+      <section class="cognitive-panel" id="cognitivePanel" aria-label="Cognitive load simulation">
+        <div>
+          <span id="cognitiveLabel">자극 누적 추정</span>
+          <strong id="cognitiveValue">38%</strong>
+        </div>
+        <div class="meter-track">
+          <i id="cognitiveMeter"></i>
+        </div>
+        <p>실제 뇌 측정이 아닌 발표용 알고리즘 시뮬레이션</p>
+      </section>
 
       <aside class="rail" aria-label="Post actions">
         <button class="avatar-btn" id="profileBtn" aria-label="Open profile">
@@ -53,7 +64,7 @@
 
       <section class="caption-block" aria-label="Post information">
         <div class="author-row">
-          <strong id="author">@mira.studio</strong>
+          <strong id="author">@brain.signal</strong>
           <button class="follow-btn" id="followBtn">Follow</button>
         </div>
         <p id="caption">새벽 작업실 무드. 유리, 금속, 낮은 베이스라인.</p>
