@@ -9,6 +9,7 @@ const reels = [
     comments: 418,
     metric: 38,
     tag: "빠른 정보",
+    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
     image: "linear-gradient(135deg, #0f172a 0%, #155e75 38%, #14b8a6 72%, #f8fafc 100%)",
     thread: [
       ["J", "짧게 보면 다 배운 것 같은 느낌이 문제네요."],
@@ -26,6 +27,7 @@ const reels = [
     comments: 1204,
     metric: 61,
     tag: "누적 자극",
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     image: "linear-gradient(160deg, #18181b 0%, #3f3f46 25%, #a1a1aa 52%, #fbbf24 73%, #7f1d1d 100%)",
     thread: [
       ["A", "많이 봤는데 설명은 못 하는 그 상태."],
@@ -43,6 +45,7 @@ const reels = [
     comments: 733,
     metric: 78,
     tag: "제동 필요",
+    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
     image: "linear-gradient(130deg, #020617 0%, #1e293b 30%, #be123c 58%, #fda4af 82%, #f8fafc 100%)",
     thread: [
       ["D", "팝콘 브레인 설명용으로 좋다."],
@@ -60,6 +63,7 @@ const reels = [
     comments: 96,
     metric: 84,
     tag: "자동 전환",
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     image: "linear-gradient(145deg, #042f2e 0%, #0f766e 32%, #d1fae5 60%, #334155 100%)",
     intervention: {
       title: "제동 구간 진입",
@@ -83,6 +87,7 @@ const reels = [
     comments: 512,
     metric: 46,
     tag: "심화 정보",
+    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
     image: "linear-gradient(145deg, #111827 0%, #312e81 26%, #7c3aed 48%, #22d3ee 78%, #ecfeff 100%)",
     knowledge: {
       title: "왜 숏폼 지식은 쉽게 사라질까?",
@@ -109,6 +114,7 @@ const reels = [
     comments: 281,
     metric: 32,
     tag: "장기 기억",
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     image: "linear-gradient(140deg, #020617 0%, #164e63 34%, #0f766e 62%, #f0fdfa 100%)",
     recall: {
       question: "방금 흐름의 핵심 문제는?",
@@ -186,13 +192,11 @@ function renderReel(reel, index) {
             <p class="recall-answer ${state.recallOpen ? "is-open" : ""}">${state.recallOpen ? reel.recall.answer : "탭하면 답 공개"}</p>
             <button type="button" data-recall>답 보기</button>
           </section>`
-        : `<div class="micro-copy">
-            <span>${reel.tag}</span>
-            <strong>${reel.metric}%</strong>
-          </div>`;
+        : "";
 
   return `
     <article class="reel ${index === state.index ? "is-active" : ""} reel-${reel.type}" style="--image: ${reel.image}" aria-label="${reel.author} reel">
+      <video class="reel-video" src="${reel.video}" autoplay muted loop playsinline preload="metadata"></video>
       <div class="motion-mark"></div>
       ${overlay}
     </article>
@@ -232,7 +236,7 @@ function updateUi() {
   followBtn.classList.toggle("is-following", state.following.has(reel.author));
   followBtn.textContent = state.following.has(reel.author) ? "Following" : "Follow";
   soundBtn.style.animationPlayState = state.muted ? "paused" : "running";
-  cognitiveLabel.textContent = reel.type === "short" ? "자극 누적 추정" : reel.type === "brake" ? "인지 제동 작동" : "기억 고정 구간";
+  cognitiveLabel.textContent = reel.type === "short" ? "자극 누적" : reel.type === "brake" ? "제동 작동" : "기억 고정";
   cognitiveMeter.style.width = `${reel.metric}%`;
   cognitiveValue.textContent = `${reel.metric}%`;
   cognitivePanel.classList.toggle("is-alert", reel.metric >= 75);
