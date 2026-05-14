@@ -9,7 +9,7 @@ const reels = [
     comments: 418,
     metric: 38,
     tag: "빠른 정보",
-    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    youtube: "wNLlATomixE",
     image: "linear-gradient(135deg, #0f172a 0%, #155e75 38%, #14b8a6 72%, #f8fafc 100%)",
     thread: [
       ["J", "짧게 보면 다 배운 것 같은 느낌이 문제네요."],
@@ -27,7 +27,7 @@ const reels = [
     comments: 1204,
     metric: 61,
     tag: "누적 자극",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+    youtube: "EdTQdgM8lms",
     image: "linear-gradient(160deg, #18181b 0%, #3f3f46 25%, #a1a1aa 52%, #fbbf24 73%, #7f1d1d 100%)",
     thread: [
       ["A", "많이 봤는데 설명은 못 하는 그 상태."],
@@ -45,7 +45,7 @@ const reels = [
     comments: 733,
     metric: 78,
     tag: "제동 필요",
-    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    youtube: "HgrvladxFto",
     image: "linear-gradient(130deg, #020617 0%, #1e293b 30%, #be123c 58%, #fda4af 82%, #f8fafc 100%)",
     thread: [
       ["D", "팝콘 브레인 설명용으로 좋다."],
@@ -68,8 +68,8 @@ const reels = [
     intervention: {
       title: "제동 구간 진입",
       kicker: "Cognitive Brake",
-      body: "연속 스크롤 3회 후 자극 피로가 높아졌다고 가정합니다. 다음 콘텐츠는 빠른 재미가 아니라 기억 고정을 돕는 정리형 카드로 전환됩니다.",
-      action: "핵심만 10초 정리",
+      body: "짧은 영상 3개를 빠르게 넘긴 뒤, 피드는 바로 다음 자극을 주지 않고 흐름을 멈춥니다. 방금 본 정보를 연결할 시간을 만들어 휘발을 줄입니다.",
+      action: "핵심 연결 보기",
     },
     thread: [
       ["K", "여기서 쉬어가는 게 앱의 차별점이네요."],
@@ -90,13 +90,13 @@ const reels = [
     video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
     image: "linear-gradient(145deg, #111827 0%, #312e81 26%, #7c3aed 48%, #22d3ee 78%, #ecfeff 100%)",
     knowledge: {
-      title: "왜 숏폼 지식은 쉽게 사라질까?",
+      title: "빠른 시청을 깊은 지식으로 바꾸는 방법",
       points: [
-        "작업기억은 한 번에 처리할 수 있는 정보량이 제한적입니다.",
-        "장기 기억은 반복, 연결, 회상 과정을 거칠 때 안정됩니다.",
-        "따라서 피드 중간에 요약, 질문, 비교를 넣어야 지식이 고정됩니다.",
+        "영상 직후 핵심 키워드 1개를 뽑아 정보의 방향을 고정합니다.",
+        "다음에는 쉬운 영상이 아니라 관련 전공/언어/심화 개념을 짧게 삽입합니다.",
+        "마지막에는 회상 질문을 띄워 사용자가 직접 기억을 꺼내게 만듭니다.",
       ],
-      prompt: "방금 본 3개 영상의 공통 키워드: 속도, 자극, 연결 부족",
+      prompt: "방금 본 3개 영상의 공통 처리: 빠른 입력 -> 짧은 정지 -> 구조화 -> 회상",
     },
     thread: [
       ["M", "그냥 쉬는 게 아니라 공부 카드가 들어오는 구조."],
@@ -117,8 +117,8 @@ const reels = [
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
     image: "linear-gradient(140deg, #020617 0%, #164e63 34%, #0f766e 62%, #f0fdfa 100%)",
     recall: {
-      question: "방금 흐름의 핵심 문제는?",
-      answer: "정보는 빠르게 들어오지만 연결과 회상 시간이 부족해 휘발성 지식이 된다.",
+      question: "방금 본 숏폼이 지식으로 남으려면 무엇이 필요할까?",
+      answer: "다음 영상으로 바로 넘어가기 전에 핵심을 요약하고, 관련 심화 개념을 연결한 뒤, 회상 질문으로 다시 꺼내야 한다.",
     },
     thread: [
       ["T", "회상 질문이 들어오니 설명이 남는다."],
@@ -171,6 +171,16 @@ function renderFeed() {
 }
 
 function renderReel(reel, index) {
+  const media = reel.youtube
+    ? `<iframe
+        class="reel-video youtube-embed"
+        src="https://www.youtube.com/embed/${reel.youtube}?autoplay=1&mute=1&loop=1&playlist=${reel.youtube}&controls=0&playsinline=1&modestbranding=1&rel=0"
+        title="${reel.author} YouTube short"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>`
+    : `<video class="reel-video" src="${reel.video}" autoplay muted loop playsinline preload="metadata"></video>`;
+
   const overlay = reel.intervention
     ? `<section class="insight-card brake-card">
         <span>${reel.intervention.kicker}</span>
@@ -196,7 +206,7 @@ function renderReel(reel, index) {
 
   return `
     <article class="reel ${index === state.index ? "is-active" : ""} reel-${reel.type}" style="--image: ${reel.image}" aria-label="${reel.author} reel">
-      <video class="reel-video" src="${reel.video}" autoplay muted loop playsinline preload="metadata"></video>
+      ${media}
       <div class="motion-mark"></div>
       ${overlay}
     </article>
