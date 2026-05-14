@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loopdeck Short Feed - Test Prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="phone-shell" aria-label="Loopdeck mobile short-form feed">
+      <section class="feed" id="feed" aria-live="polite"></section>
+
+      <header class="topbar" aria-label="Feed sections">
+        <button class="icon-btn ghost" id="cameraBtn" aria-label="Create">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 7.2 8.2 4.7h7.6l1.7 2.5H20a2 2 0 0 1 2 2v8.6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.2a2 2 0 0 1 2-2h2.5Z"/><circle cx="12" cy="13.6" r="3.7"/></svg>
+        </button>
+        <nav class="section-tabs" aria-label="Content filter">
+          <button class="tab is-active">For You</button>
+          <button class="tab">Following</button>
+        </nav>
+        <button class="icon-btn ghost" id="searchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.1-4.1"/></svg>
+        </button>
+      </header>
+
+      <div class="test-badge" aria-label="Test prototype">TEST PROTOTYPE</div>
+
+      <aside class="rail" aria-label="Post actions">
+        <button class="avatar-btn" id="profileBtn" aria-label="Open profile">
+          <span id="avatarInitial">M</span>
+          <b>+</b>
+        </button>
+        <button class="action-btn" id="likeBtn" aria-label="Like video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.7a5.1 5.1 0 0 0-7.2 0L12 7.3l-1.6-1.6a5.1 5.1 0 1 0-7.2 7.2L12 21.5l8.8-8.6a5.1 5.1 0 0 0 0-7.2Z"/></svg>
+          <span id="likeCount">28K</span>
+        </button>
+        <button class="action-btn" id="commentBtn" aria-label="Open comments">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-9 8.5 9.6 9.6 0 0 1-4-.9L3 20.5l1.3-4.4A8.2 8.2 0 0 1 3 11.5 8.7 8.7 0 0 1 12 3a8.7 8.7 0 0 1 9 8.5Z"/></svg>
+          <span id="commentCount">418</span>
+        </button>
+        <button class="action-btn" id="shareBtn" aria-label="Share video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 3 10.5 14.5"/><path d="m22 3-7.2 18-4.3-6.5L4 10.3 22 3Z"/></svg>
+          <span>Share</span>
+        </button>
+        <button class="action-btn" id="saveBtn" aria-label="Save video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
+          <span>Save</span>
+        </button>
+        <button class="disc" id="soundBtn" aria-label="Mute or unmute">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9H5v6h4l5 4V5L9 9Z"/><path d="M18 9.3a4 4 0 0 1 0 5.4"/></svg>
+        </button>
+      </aside>
+
+      <section class="caption-block" aria-label="Post information">
+        <div class="author-row">
+          <strong id="author">@mira.studio</strong>
+          <button class="follow-btn" id="followBtn">Follow</button>
+        </div>
+        <p id="caption">새벽 작업실 무드. 유리, 금속, 낮은 베이스라인.</p>
+        <button class="sound-row" id="soundRow" aria-label="Open sound">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          <span id="soundName">original audio - mira</span>
+        </button>
+      </section>
+
+      <footer class="bottom-nav" aria-label="Primary navigation">
+        <button class="nav-btn is-active" aria-label="Home">
+          <svg viewBox="0 0 24 24"><path d="M3 10.8 12 3l9 7.8V21h-6v-6H9v6H3V10.8Z"/></svg>
+        </button>
+        <button class="nav-btn" aria-label="Discover">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 5-5 2 2-5 5-2Z"/></svg>
+        </button>
+        <button class="create-btn" aria-label="Create post">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button class="nav-btn" aria-label="Inbox">
+          <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/></svg>
+        </button>
+        <button class="nav-btn" aria-label="Profile">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </button>
+      </footer>
+
+      <div class="heart-burst" id="heartBurst" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M20.8 5.7a5.1 5.1 0 0 0-7.2 0L12 7.3l-1.6-1.6a5.1 5.1 0 1 0-7.2 7.2L12 21.5l8.8-8.6a5.1 5.1 0 0 0 0-7.2Z"/></svg>
+      </div>
+    </main>
+
+    <section class="sheet" id="commentSheet" aria-label="Comments" aria-hidden="true">
+      <div class="sheet-handle"></div>
+      <div class="sheet-head">
+        <strong>Comments</strong>
+        <button class="icon-btn" data-close="commentSheet" aria-label="Close comments">
+          <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="comment-list" id="commentList"></div>
+      <form class="comment-form" id="commentForm">
+        <input id="commentInput" type="text" placeholder="Add a comment..." autocomplete="off" />
+        <button>Post</button>
+      </form>
+    </section>
+
+    <section class="sheet compact" id="shareSheet" aria-label="Share options" aria-hidden="true">
+      <div class="sheet-handle"></div>
+      <div class="sheet-head">
+        <strong>Share</strong>
+        <button class="icon-btn" data-close="shareSheet" aria-label="Close share options">
+          <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="share-grid">
+        <button>Copy link</button>
+        <button>Message</button>
+        <button>Story</button>
+        <button>Report</button>
+      </div>
+    </section>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
